@@ -90,12 +90,6 @@ to enhance my practical web development skills.
 
 ---
 
-## 📢 Hashtags (For LinkedIn)
-
-#codsoft #internship #webdevelopment #portfolio #html #css #javascript #github
-
----
-
 ## 📄 License
 
 This project is developed for **educational purposes** under CODSOFT Internship.
