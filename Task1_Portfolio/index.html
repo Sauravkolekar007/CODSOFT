@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saurav Kolekar | Professional Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">SK Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Hi, I'm <span>Saurav Kolekar</span></h1>
+            <p>Full Stack Developer & IT Student</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn">Let's Connect</a>
+                <a href="Saurav K Resume.pdf" class="btn btn-outline" download>Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-flex">
+                <div class="about-image">
+                    <img src="Saurav.jpg" alt="Saurav Kolekar">
+                </div>
+                <div class="about-card">
+                    <p>I am a motivated <strong>Information Technology student</strong> currently pursuing my B.E. at Savitribai Phule Pune University. With a strong academic background—including an 87.38% in my IT Diploma and 90.83% in HSC—I have developed a deep passion for web development.</p>
+                    <p>My objective is to secure a <strong>Full Stack / Web Development Internship</strong> where I can apply my skills in building functional, user-centric applications while contributing effectively to a professional team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Key Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS, JavaScript</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & DB</h3>
+                    <p>PHP, MySQL, MongoDB</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <p>C++, JAVA</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <p>VS Code, GitHub, CRUD Operations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Gym Management System</h3>
+                    <p>A comprehensive system to manage gym operations.</p>
+                </div>
+                <div class="project-card">
+                    <h3>FitFussion</h3>
+                    <p>A fitness web application built to help users track health goals.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Restaurant Ordering System</h3>
+                    <p>Integrated frontend-backend system using HTML, CSS, PHP, and MySQL.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Student Management System</h3>
+                    <p>IT department specific management system for student records.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container text-center">
+            <h2 class="section-title">Resume</h2>
+            <p>View my full qualifications and academic history.</p>
+            <br>
+            <a href="Saurav K Resume.pdf" class="btn" target="_blank">View PDF Resume</a>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p><strong>Phone:</strong> +91 8180075339</p>
+                    <p><strong>Email:</strong> sauravkolekar8007@gmail.com</p>
+                    <p><strong>Location:</strong> Baramati, Pune, Maharashtra</p>
+                </div>
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/xdaaezjq" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn" class="btn btn-block">
+                        <span id="btn-text">Send Message</span>
+                        <span id="btn-loader" class="loader" style="display: none;"></span>
+                    </button>
+                    <div id="form-status" class="form-status"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Saurav Kolekar | Information Technology Student</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const btnText = document.getElementById('btn-text');
+        const btnLoader = document.getElementById('btn-loader');
+        const statusDiv = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            btnText.style.opacity = '0';
+            btnLoader.style.display = 'block';
+            
+            const data = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    statusDiv.textContent = "Thank you! Your message has been sent successfully.";
+                    statusDiv.className = 'form-status success';
+                    form.reset();
+                } else { throw new Error(); }
+            } catch (error) {
+                statusDiv.textContent = "Oops! Something went wrong.";
+                statusDiv.className = 'form-status error';
+            } finally {
+                submitBtn.disabled = false;
+                btnText.style.opacity = '1';
+                btnLoader.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
